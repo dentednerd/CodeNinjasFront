@@ -1,0 +1,233 @@
+/* defaults and resets */ 
+
+@font-face {
+  font-family: Karate;
+  src: url(Karate.ttf);
+}
+
+@font-face {
+  font-family: OpenDyslexicAlta-Regular;
+  src: url(OpenDyslexicAlta-Regular.otf) format("opentype");
+}
+
+* {
+  /* background-color: #eee; */
+  font-size: 20px;
+  font: normal 20px OpenDyslexicAlta-Regular;
+  color: #ffff99;
+}
+
+/* layout */
+
+body, html {
+  height:100% !important;
+}
+
+#root {
+  min-height:100%;
+  height: auto !important;
+  height: 100%;
+  overflow:hidden;
+}
+
+body {
+  background-image: url('../Images/backgrounds/rooftops.png');
+  background-position: center;
+   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; 
+}
+
+.columns {
+  height:100% !important;
+  overflow:hidden;
+  text-align:center;
+  padding-bottom:20px;
+}
+
+.main {
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content:center;
+  align-items: center;
+}
+
+.header {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.big {
+  font: normal 100px Karate;
+  color: #ffff99;
+}
+
+.avatar, .levelUp {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+} 
+
+/* home and login */
+
+.Home {
+  width: 50%;
+  margin: 0 auto;
+} 
+
+.Home img {
+  width:50%;
+  box-shadow: 0px 0px 20px #fff;
+}
+
+.LogInForm {
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.LogInForm .input{
+  background: rgba(150,150,150,0.3);
+  font: normal 1em OpenDyslexicAlta-Regular;
+  color:#ff9;
+  border:none;
+  margin-right:10px;
+}
+
+.LogInForm .button{
+  color: #ffff99;
+  background-color: #ff6666;
+}
+
+/* question */
+
+.question {
+  text-align:left;
+  text-shadow: 1px 1px 2px #444;
+}
+
+.question .sensei {
+  background-color:rgba(150,150,150,0.3);
+}
+
+.question .sidebar {
+  background-color:rgba(255,255,255,0.1);
+}
+
+.question h2 {
+  font-size: 1.5em;
+  font-weight:bold;
+  text-shadow: 1px 1px 2px #444;
+}
+
+.question .background {
+  background-color:#FFF;
+  border-radius:10px;
+  color:#333;
+  text-shadow:none;
+  padding: 10px;
+  margin: 10px 0;
+  min-height:125px !important;
+}
+
+.question .example {
+  background-color:#000;
+  border-radius: 10px;
+  padding:10px;
+  margin: 10px 0;
+  font: normal 1em 'Courier New', monospace;
+  text-shadow: none;
+}
+
+.question .background img {
+  float:left;
+  width: 25%;
+}
+
+.question .answers {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.question .answers .button {
+  background-color: #f66;
+  font: normal 1em OpenDyslexicAlta-Regular;
+  color:#ff9;
+  border:none;
+  margin: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  height:auto;
+  min-width:100%;
+  /* overflow:hidden; */
+}
+
+.button {
+    background-color: #f66;
+    font: normal 1em OpenDyslexicAlta-Regular;
+    color:#ff9;
+    border:none;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    height:auto;
+    /* overflow:hidden; */
+}
+
+.button:hover {
+    color:#ff9;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button:active, .button:visited, .button:focus {
+    color:#ff9;
+}
+
+.button:focus {
+    -webkit-animation-name: colChange;
+    -webkit-animation-duration: 2s;
+    animation-name: colChange;
+    animation-duration: 2s;
+}
+@keyframes colChange {
+    from {background-color: red;}
+    to {background-color: #f66;}
+}
+
+.button:after {
+    background-color: #f66;
+}
+
+.UserProfile img {
+    width: 50%;
+}
+
+/* LevelUp */
+
+.levelUp {
+  display:flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items:center;
+  width:50%;
+  margin:0 auto;
+}
+
+.levelUp .button {
+  background-color: #f66;
+  font: normal 1em OpenDyslexicAlta-Regular;
+  color:#ff9;
+  border:none;
+  margin: 10px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+  height:auto;
+  min-width:100%;
+}
