@@ -3,17 +3,17 @@ import * as types from '../actions/Types';
 const initialState = {
   data: [],
   loading: false,
-  error: null
+  error: null,
 };
 
-function questions (prevState = initialState, action) {
+function questions(prevState = initialState, action) {
   if (!action) return prevState;
 
   if (action.type === types.FETCH_QUESTIONS_REQUEST) {
     return Object.assign({}, prevState, {
       loading: true,
       data: [],
-      error: null
+      error: null,
     });
   }
 
@@ -21,7 +21,7 @@ function questions (prevState = initialState, action) {
     return Object.assign({}, prevState, {
       data: action.payload,
       loading: false,
-      error: null
+      error: null,
     });
   }
 
@@ -29,7 +29,7 @@ function questions (prevState = initialState, action) {
     return Object.assign({}, prevState, {
       error: action.payload,
       loading: false,
-      data: []
+      data: [],
     });
   }
 

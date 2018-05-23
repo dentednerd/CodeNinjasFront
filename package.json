@@ -1,29 +1,28 @@
 {
   "name": "front-end",
   "version": "1.0.0",
-  "description": "React Native Front End",
+  "description": "Code Ninjas front end in React and Redux",
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
     "lint": "eslint src __test__",
-    "precommit": "npm test",
     "start": "webpack-dev-server",
-    "test": "jest",
     "posttest": "npm run lint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/northcode-ninjas/front-end.git"
+    "url": "git+https://github.com/dentednerd/CodeNinjasFront.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/northcode-ninjas/front-end/issues"
+    "url": "https://github.com/dentednerd/CodeNinjasFront/issues"
   },
-  "homepage": "https://github.com/northcode-ninjas/front-end#readme",
+  "homepage": "https://github.com/dentednerd/CodeNinjasFront#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "bulma": "^0.4.4",
+    "history": "^4.7.2",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.1",
     "react": "^15.6.2",

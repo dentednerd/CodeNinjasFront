@@ -1,3 +1,5 @@
+import createBrowserHistory from 'history/createBrowserHistory';
+
 // React
 import React from 'react';
 import { render } from 'react-dom';
@@ -23,23 +25,23 @@ import reducer from './reducer';
 const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 // Browser History
-import createBrowserHistory from 'history/createBrowserHistory';
+
 const history = createBrowserHistory();
 
-render((
-  <Provider store={store}>
-    <Router history={history}>
-      <App>
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/profile' component={UserProfile} />
-          <Route path='/levels/:level' component={Level} />
-          <Route component={NoMatch} />
-        </Switch>
-
-      </App>
-    </Router>
-  </Provider>
-),
-document.getElementById('root')
+render(
+  (
+    <Provider store={store}>
+      <Router history={history}>
+        <App>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/profile' component={UserProfile} />
+            <Route path='/levels/:level' component={Level} />
+            <Route component={NoMatch} />
+          </Switch>
+        </App>
+      </Router>
+    </Provider>
+  ),
+  document.getElementById('root')
 );

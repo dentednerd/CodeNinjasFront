@@ -3,7 +3,7 @@ import * as types from '../actions/Types';
 const initialState = {
   user: null,
   loading: false,
-  error: null
+  error: null,
 };
 
 function auth (prevState = initialState, action) {
@@ -13,7 +13,7 @@ function auth (prevState = initialState, action) {
     return Object.assign({}, prevState, {
       user: null,
       error: null,
-      loading: true
+      loading: true,
     });
   }
 
@@ -21,7 +21,7 @@ function auth (prevState = initialState, action) {
     return Object.assign({}, prevState, {
       user: action.payload,
       loading: false,
-      error: null
+      error: null,
     });
   }
 
@@ -29,7 +29,7 @@ function auth (prevState = initialState, action) {
     return Object.assign({}, prevState, {
       error: action.payload,
       loading: false,
-      user: null
+      user: null,
     });
   }
 

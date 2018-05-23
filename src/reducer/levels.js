@@ -2,10 +2,10 @@ import * as types from '../actions/Types';
 
 const initialState = {
   level: 0,
-  loading: false
+  loading: false,
 };
 
-function LevelsReducer (prevState = initialState, action) {
+function LevelsReducer(prevState = initialState, action) {
   if (!action) return prevState;
 
   if (action.type === types.FETCH_LEVELS_REQUEST) {
