@@ -31,9 +31,11 @@ body, html {
 }
 
 body {
+  background-color: #000;
   background-image: url('../Images/backgrounds/rooftops.png');
   background-position: center;
-   background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover; 
@@ -54,8 +56,8 @@ body {
 }
 
 .header {
-    padding-top: 20px;
-    padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .big {

@@ -1,5 +1,5 @@
 {
-  "name": "front-end",
+  "name": "code-ninjas-front",
   "version": "1.0.0",
   "description": "Code Ninjas front end in React and Redux",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/dentednerd/CodeNinjasFront.git"
   },
-  "author": "",
+  "author": "Team JSKids (Ash, Joy, Janet and Jo), Northcoders cohort 5 May-Jul 2017",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dentednerd/CodeNinjasFront/issues"
