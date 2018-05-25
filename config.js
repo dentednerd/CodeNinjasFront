@@ -1,3 +1,3 @@
 module.exports = {
-  ROOT: 'http://localhost:3003/api',
+  ROOT: 'https://codeninjasserver.herokuapp.com/api',
 };

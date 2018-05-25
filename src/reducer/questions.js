@@ -7,33 +7,31 @@ const initialState = {
 };
 
 function questions(prevState = initialState, action) {
-  if (!action) return prevState;
+  switch (action.type) {
+    case types.FETCH_QUESTIONS_REQUEST:
+      return Object.assign({}, ...prevState, {
+        loading: true,
+        data: [],
+        error: null,
+      });
 
-  if (action.type === types.FETCH_QUESTIONS_REQUEST) {
-    return Object.assign({}, prevState, {
-      loading: true,
-      data: [],
-      error: null,
-    });
+    case types.FETCH_QUESTIONS_SUCCESS:
+      return Object.assign({}, ...prevState, {
+        loading: false,
+        data: action.payload,
+        error: null,
+      });
+
+    case types.FETCH_QUESTIONS_ERROR:
+      return Object.assign({}, prevState, {
+        loading: false,
+        data: [],
+        error: action.payload,
+      });
+
+    default:
+      return prevState;
   }
-
-  if (action.type === types.FETCH_QUESTIONS_SUCCESS) {
-    return Object.assign({}, prevState, {
-      data: action.payload,
-      loading: false,
-      error: null,
-    });
-  }
-
-  if (action.type === types.FETCH_QUESTIONS_ERROR) {
-    return Object.assign({}, prevState, {
-      error: action.payload,
-      loading: false,
-      data: [],
-    });
-  }
-
-  return prevState;
 }
 
 export default questions;

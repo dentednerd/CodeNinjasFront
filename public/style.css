@@ -113,6 +113,11 @@ body {
 
 .question .sensei {
   background-color:rgba(150,150,150,0.3);
+  min-height: 96px;
+}
+
+.question .sensei img.senseiSays {
+  max-width: 96px;
 }
 
 .question .sidebar {

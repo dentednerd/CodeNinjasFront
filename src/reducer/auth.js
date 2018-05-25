@@ -6,7 +6,7 @@ const initialState = {
   error: null,
 };
 
-function auth (prevState = initialState, action) {
+function auth(prevState = initialState, action) {
   if (!action) return prevState;
 
   if (action.type === types.LOGIN_USER_REQUEST) {

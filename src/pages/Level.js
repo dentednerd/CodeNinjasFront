@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchQuestions } from '../actions/questions';
+import fetchQuestions from '../actions/questions';
 import Question from '../components/Question';
 import LevelUp from './LevelUp';
+import Congrats from './Congrats';
 
 class Level extends React.Component {
   constructor(props) {
@@ -24,18 +25,19 @@ class Level extends React.Component {
       },
     };
     this.handleCorrectAnswer = this.handleCorrectAnswer.bind(this);
+    this.renderContent = this.renderContent.bind(this);
   }
 
   componentDidMount() {
     const { level } = this.props.match.params;
     this.changeBackground(level);
-    this.props.fetchQuestions(level);
+    this.props.getQuestions(level);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.match.params.level !== newProps.match.params.level) {
-      this.changeBackground(newProps.match.params.level);
-      this.props.fetchQuestions(newProps.match.params.level);
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.level !== nextProps.match.params.level) {
+      this.changeBackground(nextProps.match.params.level);
+      this.props.getQuestions(nextProps.match.params.level);
       this.setState({
         questionIndex: 0,
       });
@@ -43,7 +45,7 @@ class Level extends React.Component {
   }
 
   changeBackground(level) {
-    document.getElementsByTagName('body')[0].style.backgroundImage = `url("/Images/backgrounds/${this.state.backgroundImage[level]}")` ;
+    document.getElementsByTagName('body')[0].style.backgroundImage = `url("/Images/backgrounds/${this.state.backgroundImage[level]}")`;
   }
 
   handleCorrectAnswer() {
@@ -52,26 +54,41 @@ class Level extends React.Component {
     });
   }
 
-  render() {
-    const { questionIndex } = this.state.questionIndex;
-    const { loading, error, questions } = this.props;
-    return (
-      <div className="Level">
-        {(error) && <p>{error}</p>}
-        {(loading || questions.length === 0) && <p>Loading...</p>}
-        {(!loading && questionIndex === questions.length && 
+  renderContent(error, loading, data, questionIndex) {
+    if (error) return <p>{error}</p>;
+    if (loading || data.length === 0) return <p>Loading...</p>;
+    if (!loading) {
+      if (questionIndex === data.length) {
+        console.log(this.props.match.params.level);
+        if (this.props.match.params.level === 8) {
+          return (
+            <Congrats />
+          );
+        }
+        return (
           <LevelUp
             level={this.props.match.params.level}
             questionIndex={questionIndex}
           />
-        )}
-        {!loading && questions.length > 0 && questionIndex < questions.length && (
-          <Question
-            question={questions[questionIndex]} 
-            questionIndex={questionIndex} 
-            handleCorrectAnswer={this.handleCorrectAnswer}
-          />
-        )}
+        );
+      }
+      return (
+        <Question
+          question={data[questionIndex]}
+          questionIndex={questionIndex}
+          handleCorrectAnswer={this.handleCorrectAnswer}
+        />
+      );
+    }
+    return <p>Whaaat</p>;
+  }
+
+  render() {
+    // const { questionIndex } = this.state.questionIndex;
+    const { loading, error, data } = this.props;
+    return (
+      <div className="Level">
+        {this.renderContent(error, loading, data, this.state.questionIndex)}
       </div>
     );
   }
@@ -79,25 +96,23 @@ class Level extends React.Component {
 
 Level.propTypes = {
   match: PropTypes.object,
-  fetchQuestions: PropTypes.func,
-  loading: PropTypes.object,
+  getQuestions: PropTypes.func,
+  loading: PropTypes.bool,
   error: PropTypes.object,
-  questions: PropTypes.object,
+  data: PropTypes.array,
 };
 
 function mapStateToProps(state) {
   return {
     loading: state.questions.loading,
     error: state.questions.error,
-    questions: state.questions.data,
+    data: state.questions.data,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchQuestions: (level) => {
-      dispatch(fetchQuestions(level));
-    },
+    getQuestions: (level) => { dispatch(fetchQuestions(level)); },
   };
 }
 

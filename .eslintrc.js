@@ -15,6 +15,7 @@ module.exports = {
         "aspects": [ "noHref", "invalidHref", "preferButton" ]
       }],
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
-      "react/forbid-prop-types": [0]
+      "react/forbid-prop-types": [0],
+      "arrow-body-style": ["error", "always"]
   }
 };
