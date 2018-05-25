@@ -9,8 +9,7 @@
   },
   "scripts": {
     "build": "webpack -p",
-    "dev": "webpack-dev-server",
-    "start": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
