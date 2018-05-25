@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname),
+    path: path.resolve(__dirname, 'public'),
     publicPath: '/',
   },
   devtool: 'eval',
@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         test: /.(png|jpg|jpeg|gif|svg|woff|woff2|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader'
+        loader: 'url-loader',
       },
     ],
   },
