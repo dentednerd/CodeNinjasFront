@@ -8,19 +8,22 @@
     "npm": "6.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages-deploy -- 'Deploying'",
+    "clean-source": "rimraf README.md src webroot package.json",
     "build": "webpack -p",
     "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dentednerd/CodeNinjasFront.git"
+    "url": "git+https://github.com/dentednerd/CodeNinjas.git"
   },
   "author": "Team JSKids (Ash, Joy, Janet and Jo), Northcoders cohort 5 May-Jul 2017",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dentednerd/CodeNinjasFront/issues"
+    "url": "https://github.com/dentednerd/CodeNinjas/issues"
   },
-  "homepage": "https://github.com/dentednerd/CodeNinjasFront#readme",
+  "homepage": "https://dentednerd.github.io/CodeNinjas/",
   "dependencies": {
     "axios": "^0.16.2",
     "bulma": "^0.4.4",
@@ -49,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "file-loader": "^0.11.2",
+    "gh-pages-deploy": "^0.5.0",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "redux-logger": "^3.0.6",
