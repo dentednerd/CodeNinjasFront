@@ -2,10 +2,15 @@
   "name": "code-ninjas-front",
   "version": "1.0.0",
   "description": "Code Ninjas front end in React and Redux",
-  "main": "index.js",
+  "main": "src/index.js",
+  "engines": {
+    "node": "8.4.0",
+    "npm": "6.0.1"
+  },
   "scripts": {
     "build": "webpack -p",
-    "start": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "start": "./node_modules/webpack/bin/webpack.js -p --progress && node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bulma": "^0.4.4",
+    "express": "^4.16.3",
     "history": "^4.7.2",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.1",
