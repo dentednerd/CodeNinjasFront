@@ -10,7 +10,6 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages-deploy -- 'Deploying'",
-    "clean-source": "rimraf README.md src webroot package.json",
     "build": "webpack -p",
     "start": "webpack-dev-server"
   },
